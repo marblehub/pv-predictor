@@ -1,0 +1,101 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #dff6ff, #c3eaff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
+.container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transition: background 0.3s, color 0.3s;
+}
+
+h2 {
+    color: #005f73;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type=number] {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+input[type=submit] {
+    background-color: #00b4d8;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type=submit]:hover {
+    background-color: #0077b6;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #023047;
+    background-color: #e0f7fa;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Dark mode styles */
+body.dark {
+    background: #121212;
+    color: #f0f0f0;
+}
+
+body.dark .container {
+    background: #1e1e1e;
+}
+
+body.dark input[type=number],
+body.dark input[type=submit] {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark .result {
+    background-color: #2d2d2d;
+    color: #ddd;
+}
+
+.toggle-btn {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #0077b6;
+    border: none;
+    background: none;
+    text-decoration: underline;
+}

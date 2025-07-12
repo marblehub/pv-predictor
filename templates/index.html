@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>☀️ PV Power Output Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        window.onload = function () {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>☀️ PV Power Predictor</h2>
+        <form method="post" action="/predict">
+            <input type="number" name="temperature" step="0.1" placeholder="Temperature (°C)" required><br>
+            <input type="number" name="irradiance" step="1" placeholder="Irradiance (W/m²)" required><br>
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                🔋 Predicted Power Output: <strong>{{ prediction }}</strong>
+            </div>
+        {% endif %}
+
+        <button class="toggle-btn" onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+        <footer>
+            Made with ❤️ using Flask & PyTorch
+        </footer>
+    </div>
+</body>
+</html>
