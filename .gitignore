@@ -205,3 +205,37 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# PyTorch model weights
+*.pth
+
+# Scikit-learn scalers, pickles
+*.pkl
+
+# Flask debug logs
+instance/
+*.log
+
+# macOS / Linux / Windows system files
+.DS_Store
+Thumbs.db
+
+# PyCharm / VSCode project settings
+.vscode/
+.idea/
+
+# Static/media cache (if added)
+static/*.tmp
