@@ -15,10 +15,17 @@ scaler = joblib.load("scaler.pkl")
 @app.route('/')
 def home():
     return render_template('index.html')
-
+    
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
+        # Load on demand
+        model = PVNet()
+        model.load_state_dict(torch.load("pv_model.pth", map_location="cpu"))
+        model.eval()
+
+        scaler = joblib.load("scaler.pkl")
+
         temp = float(request.form['temperature'])
         irr = float(request.form['irradiance'])
         features = np.array([[temp, irr]])
@@ -27,15 +34,23 @@ def predict():
 
         with torch.no_grad():
             output = model(input_tensor).item()
-        
+
         return render_template('index.html', prediction=f"{output:.3f} kW")
-    
+
     except Exception as e:
         return jsonify({"error": str(e)})
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bd3a9a1 (Fix: bind to 0.0.0.0 and disable debug mode)
 import os
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))  # required by Render
+<<<<<<< HEAD
     app.run(host='0.0.0.0', port=port, debug=False)  # disable debug
 
+=======
+    app.run(host='0.0.0.0', port=port, debug=False)  # disable debug
+>>>>>>> bd3a9a1 (Fix: bind to 0.0.0.0 and disable debug mode)
