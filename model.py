@@ -11,11 +11,10 @@ import torch
 class PVNet(nn.Module):
     def __init__(self):
         super().__init__()
-        self.hidden1 = nn.Linear(2, 10)
-        self.hidden2 = nn.Linear(10, 10)
-        self.output = nn.Linear(10, 1)
+        self.hidden = nn.Linear(2, 6)
+        self.output = nn.Linear(6, 1)
 
     def forward(self, x):
-        x = torch.relu(self.hidden1(x))
-        x = torch.relu(self.hidden2(x))
+        x = torch.relu(self.hidden(x))
         return self.output(x)
+
